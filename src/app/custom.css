@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+.gradient{
+    background: -webkit-linear-gradient(-37deg, rgb(189, 210, 255) 0%, rgb(0, 60, 255) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    scrollbar-width: none; /* For Firefox */
+}
+
+.oxanium{
+    font-family: 'Oxanium', sans-serif;
+}
+.oxanium-bold{
+    font-weight: 700;
+}
+
+.oxanium-semibold{
+    font-weight: 600;
+}
+
+.oxanium-medium{
+    font-weight: 500;
+}
+
+.oxanium-regular{
+    font-weight: 400;
+}
+
+.oxanium-light{
+    font-weight: 300;
+}
+
+.oxanium-extralight{
+    font-weight: 200;
+}
+
+.oxanium-italic{
+    font-style: italic;
+}
