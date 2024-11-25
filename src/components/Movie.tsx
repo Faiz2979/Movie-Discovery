@@ -38,7 +38,7 @@ export default function Movie() {
                         </div>
                     ))}
                 </div>
-                <div className="flex justify-center w-full mt-6 gap-4" >
+                <div className="flex justify-center w-full mt-6 gap-4 oxanium oxanium-bold" >
                     {/* Tombol Previous */}
                     <button
                         onClick={() => handlePageChange(page - 1)}

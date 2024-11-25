@@ -20,7 +20,7 @@
                 height={600}
             />
             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out rounded-lg">
-                <h2 className="absolute bottom-4 left-4 text-white text-lg font-semibold">
+                <h2 className="absolute bottom-4 left-4 text-white text-lg oxanium oxanium-semibold">
                 {movieCard.title}
                 </h2>
             </div>
