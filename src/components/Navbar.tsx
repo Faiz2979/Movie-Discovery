@@ -1,13 +1,9 @@
 'use client'
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import handlePageChange from "/Movie";
     export default function Navbar() {
         const [scrollY, setScrollY] = useState(0);
-        const handlePageChange = (page: number, section: string) => {
-            console.log(`Navigating to page ${page}, section ${section}`);
-        };
-
         const toPage1 = () => {
 
         }
@@ -28,7 +24,7 @@ import { useEffect, useState } from "react";
             className={`px-[30px] lg:px-[100px] py-[5px] flex items-center justify-between h-[70px] transition-all fixed w-full duration-300 z-[999] overflow-hidden`}
         >
             <Link
-            onClick={() => handlePageChange(1, "#top")}
+            onClick={() => handlePageChange(1)}
             href={"/"}
             className="text-white z-10 text-4xl oxanium oxanium-semibold leading-none inline-flex items-end gap-[2px]"
             >
