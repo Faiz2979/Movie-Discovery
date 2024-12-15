@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import MovieCard from "./parts/Card";
 
-const [movies, setMovies] = useState([]);
-const [page, setPage] = useState(() => {
-    // Ambil nilai dari localStorage hanya sekali saat komponen pertama kali dimuat
-    const savedPage = localStorage.getItem("page");
-    return savedPage ? parseInt(savedPage, 10) : 1;
-});
-
-const handlePageChange = (newPage: number, goTop: string) => {
-    window.location.href = goTop;
-    if (newPage >= 1) {
-        setPage(newPage);
-    }
-};
 export default function Movie() {
+    // Pindahkan deklarasi useState ke dalam fungsi komponen
+    const [movies, setMovies] = useState([]);
+    const [page, setPage] = useState(() => {
+        // Ambil nilai dari localStorage hanya sekali saat komponen pertama kali dimuat
+        const savedPage = localStorage.getItem("page");
+        return savedPage ? parseInt(savedPage, 10) : 1;
+    });
 
+    const handlePageChange = (newPage: number, goTop: string) => {
+        window.location.href = goTop;
+        if (newPage >= 1) {
+            setPage(newPage);
+        }
+    };
 
     const getMovies = async (page: number) => {
         try {
@@ -37,7 +37,6 @@ export default function Movie() {
     useEffect(() => {
         localStorage.setItem("page", page.toString());
     }, [page]);
-
 
     return (
         <div className="flex relative justify-center items-center min-h-screen " id="top">
@@ -67,8 +66,8 @@ export default function Movie() {
                         Next
                     </button>
                 </div>
-
             </div>
         </div>
     );
 }
+
