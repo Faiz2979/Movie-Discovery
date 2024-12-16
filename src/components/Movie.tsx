@@ -54,14 +54,14 @@ export default function Movie() {
                     {page > 1 && (
                         <button
                             onClick={() => handlePageChange(page - 1, "#top")}
-                            className="px-4 w-1/4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
+                            className="px-4 w-1/4 py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600"
                         >
                             Previous
                         </button>
                     )}
                     <button
                         onClick={() => handlePageChange(page + 1, "#top")}
-                        className="px-4 py-2 w-1/4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
+                        className="px-4 py-2 w-1/4 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600"
                     >
                         Next
                     </button>

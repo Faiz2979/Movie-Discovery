@@ -1,14 +1,9 @@
 'use client'
-import Header from '@/components/Header';
-import Movie from '@/components/Movie';
+import Hero from '@/components/Hero';
 export default function Home() {
-
-  
-
   return (
     <div id="home" className="">
-      <Header></Header>
-      <Movie></Movie>
+      <Hero></Hero>
     </div>
   );
 }
