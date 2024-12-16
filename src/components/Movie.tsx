@@ -12,12 +12,18 @@ type Movie = {
 
 export default function Movie() {
     const [movies, setMovies] = useState<Movie[]>([]);
-    const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]); // State untuk film yang difilter
-    const [searchQuery, setSearchQuery] = useState(""); // State untuk query pencarian
-    const [page, setPage] = useState(() => {
-        const savedPage = localStorage.getItem("page");
-        return savedPage ? parseInt(savedPage, 10) : 1;
-    });
+    const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [page, setPage] = useState(1);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const savedPage = localStorage.getItem("page");
+            if (savedPage) {
+                setPage(parseInt(savedPage, 10));
+            }
+        }
+    }, []);
 
     const handlePageChange = (newPage: number, goTop: string) => {
         window.location.href = goTop;
@@ -33,7 +39,7 @@ export default function Movie() {
             );
             const data = await response.json();
             setMovies(data.results);
-            setFilteredMovies(data.results); // Set hasil awal ke state filteredMovies
+            setFilteredMovies(data.results);
         } catch (error) {
             console.error("Error fetching movies:", error);
         }
@@ -42,7 +48,7 @@ export default function Movie() {
     const handleSearch = (query: string) => {
         setSearchQuery(query);
         if (query.trim() === "") {
-            setFilteredMovies(movies); // Jika query kosong, tampilkan semua film
+            setFilteredMovies(movies);
         } else {
             const filtered = movies.filter((movie) =>
                 movie.title.toLowerCase().includes(query.toLowerCase())
@@ -56,7 +62,9 @@ export default function Movie() {
     }, [page]);
 
     useEffect(() => {
-        localStorage.setItem("page", page.toString());
+        if (typeof window !== "undefined") {
+            localStorage.setItem("page", page.toString());
+        }
     }, [page]);
 
     return (
