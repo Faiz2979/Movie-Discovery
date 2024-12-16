@@ -1,3 +1,4 @@
+'use client';
 import { useEffect, useState } from "react";
 import MovieCard from "./parts/Card";
 
@@ -39,7 +40,7 @@ export default function Movie() {
     }, [page]);
 
     return (
-        <div className="flex relative justify-center items-center min-h-screen " id="top">
+        <div className="flex relative justify-center items-center min-h-screen mt-10 " id="top">
             <div className=" flex flex-col items-center snap-center w-3/4">
                 <h2 className="text-2xl oxanium oxanium-bold mb-4">Movie Library</h2>
                 <p className="mt-2 text-gray-300 text-xl oxanium oxanium-bold mb-8">Page: {page}</p>

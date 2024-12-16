@@ -26,7 +26,7 @@ import handlePageChange from "./Movie";
             <Link
             onClick={() => handlePageChange(1,"#top")}
             href={"/"}
-            className="text-white z-10 text-md lg:text-4xl oxanium oxanium-semibold leading-none inline-flex items-end gap-[2px]"
+            className="text-white z-10 text-lg lg:text-4xl oxanium oxanium-semibold leading-none inline-flex items-end gap-[2px]"
             >
             TM<span className="text-red-600">DB</span><span className="w-2 h-2 rounded-full bg-red-600"></span>
             </Link>
