@@ -2,9 +2,15 @@
 import { useEffect, useState } from "react";
 import MovieCard from "./parts/Card";
 
+type Movie = {
+    id: number;
+    title: string;
+    [key: string]: any; // Untuk properti lain yang mungkin ada
+};
+
 export default function Movie() {
-    const [movies, setMovies] = useState([]);
-    const [filteredMovies, setFilteredMovies] = useState([]); // State untuk film yang difilter
+    const [movies, setMovies] = useState<Movie[]>([]);
+    const [filteredMovies, setFilteredMovies] = useState<Movie[]>([]); // State untuk film yang difilter
     const [searchQuery, setSearchQuery] = useState(""); // State untuk query pencarian
     const [page, setPage] = useState(() => {
         const savedPage = localStorage.getItem("page");
@@ -24,6 +30,7 @@ export default function Movie() {
                 `https://api.themoviedb.org/3/movie/now_playing?api_key=74f0f3d49d2f500b7a5273ac409e25b1&language=in-ID&page=${page}`
             );
             const data = await response.json();
+            console.log(data.results); // Debugging struktur data API
             setMovies(data.results);
             setFilteredMovies(data.results); // Set hasil awal ke state filteredMovies
         } catch (error) {
