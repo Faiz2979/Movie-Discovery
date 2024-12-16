@@ -2,7 +2,7 @@ import Movie from "@/components/Movie";
 
 export default function MovieApp() {
   return (
-    <div>
+    <div className=" ">
       <Movie></Movie>
     </div>
   );

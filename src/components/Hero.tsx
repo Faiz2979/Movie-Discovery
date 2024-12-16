@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Hero(){
     return(
-        <div className="min-h-screen flex items-center justify-center bg-[#0e0202]">
+        <div className="min-h-screen flex items-center justify-center ">
             <div className="oxanium flex flex-col items-center justify-center h-full">
                 <div className='text-white z-10 text-xl lg:text-8xl oxanium oxanium-semibold leading-none inline-flex items-end gap-[2px]'>
 

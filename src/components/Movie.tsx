@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import MovieCard from "./parts/Card";
 
 export default function Movie() {
-    // Pindahkan deklarasi useState ke dalam fungsi komponen
     const [movies, setMovies] = useState([]);
+    const [filteredMovies, setFilteredMovies] = useState([]); // State untuk film yang difilter
+    const [searchQuery, setSearchQuery] = useState(""); // State untuk query pencarian
     const [page, setPage] = useState(() => {
-        // Ambil nilai dari localStorage hanya sekali saat komponen pertama kali dimuat
         const savedPage = localStorage.getItem("page");
         return savedPage ? parseInt(savedPage, 10) : 1;
     });
@@ -25,9 +25,21 @@ export default function Movie() {
             );
             const data = await response.json();
             setMovies(data.results);
-            console.log(data);
+            setFilteredMovies(data.results); // Set hasil awal ke state filteredMovies
         } catch (error) {
             console.error("Error fetching movies:", error);
+        }
+    };
+
+    const handleSearch = (query: string) => {
+        setSearchQuery(query);
+        if (query.trim() === "") {
+            setFilteredMovies(movies); // Jika query kosong, tampilkan semua film
+        } else {
+            const filtered = movies.filter((movie) =>
+                movie.title.toLowerCase().includes(query.toLowerCase())
+            );
+            setFilteredMovies(filtered);
         }
     };
 
@@ -40,17 +52,30 @@ export default function Movie() {
     }, [page]);
 
     return (
-        <div className="flex relative justify-center items-center min-h-screen mt-10 " id="top">
-            <div className=" flex flex-col items-center snap-center w-3/4">
+        <div className="flex relative justify-center items-center min-h-screen" id="top">
+            <div className="flex flex-col items-center snap-center w-3/4 mt-20">
                 <h2 className="text-2xl oxanium oxanium-bold mb-4">Movie Library</h2>
                 <p className="mt-2 text-gray-300 text-xl oxanium oxanium-bold mb-8">Page: {page}</p>
+
+                {/* Search bar */}
+                <div className="mb-6 w-2/4 rounded-md bg-transparent outline outline-red-600">
+                    <input
+                        type="text"
+                        placeholder="Search for a movie..."
+                        value={searchQuery}
+                        onChange={(e) => handleSearch(e.target.value)}
+                        className="w-full px-4 py-2 text-white bg-transparent"
+                    />
+                </div>
+
                 <div className="flex justify-center flex-wrap gap-3 items-center hide-scrollbar overflow-x-scroll w-full">
-                    {movies.map((movie) => (
+                    {filteredMovies.map((movie) => (
                         <div key={movie.id} className="flex-none">
                             <MovieCard movieCard={movie} />
                         </div>
                     ))}
                 </div>
+
                 <div className="flex justify-center w-full mt-6 gap-4 oxanium oxanium-bold">
                     {page > 1 && (
                         <button
@@ -71,4 +96,3 @@ export default function Movie() {
         </div>
     );
 }
-

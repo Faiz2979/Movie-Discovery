@@ -33,14 +33,6 @@ import handlePageChange from "./Movie";
             <div
             className={`absolute w-full h-full left-0 top-0 z-0 transition-all duration-300 ${scrollY > 100? "bg-[#a10f0f] bg-opacity-20 backdrop-blur-sm": "bg-transparent"}`}
             ></div>
-            {/* Search Bar */}
-            <div className="flex items-center gap-3 z-10">
-            <input
-                type="text"
-                placeholder="Search"
-                className="oxanium oxanium-medium bg-transparent border-b border-white text-white"
-            />
-            </div>
         </nav>
         );
     }
