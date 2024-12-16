@@ -5,7 +5,9 @@ import MovieCard from "./parts/Card";
 type Movie = {
     id: number;
     title: string;
-    [key: string]: any; // Untuk properti lain yang mungkin ada
+    overview: string;
+    poster_path: string;
+    release_date: string;
 };
 
 export default function Movie() {
@@ -30,7 +32,6 @@ export default function Movie() {
                 `https://api.themoviedb.org/3/movie/now_playing?api_key=74f0f3d49d2f500b7a5273ac409e25b1&language=in-ID&page=${page}`
             );
             const data = await response.json();
-            console.log(data.results); // Debugging struktur data API
             setMovies(data.results);
             setFilteredMovies(data.results); // Set hasil awal ke state filteredMovies
         } catch (error) {
