@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 import handlePageChange from "./Movie";
     export default function Navbar() {
         const [scrollY, setScrollY] = useState(0);
-        const toPage1 = () => {
-
-        }
         useEffect(() => {
         const handleScroll = () => {
             setScrollY(window.scrollY);
