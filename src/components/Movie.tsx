@@ -91,19 +91,18 @@ export default function Movie() {
                         </div>
                     ))}
                 </div>
-
                 <div className="flex justify-center w-full mt-6 gap-4 oxanium oxanium-bold">
                     {page > 1 && (
                         <button
                             onClick={() => handlePageChange(page - 1, "#top")}
-                            className="px-4 w-1/4 py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600"
+                            className="px-4 w-1/4 text-sm md:text-md py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 whitespace-nowrap"
                         >
-                            Previous
+                            Back
                         </button>
                     )}
                     <button
                         onClick={() => handlePageChange(page + 1, "#top")}
-                        className="px-4 py-2 w-1/4 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600"
+                        className="text-sm md:text-md lg:text-lg px-4 py-2 w-1/4 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 whitespace-nowrap"
                     >
                         Next
                     </button>
