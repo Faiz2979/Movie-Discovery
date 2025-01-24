@@ -10,7 +10,7 @@ export default function Hero(){
                 </div>
                 <h1 className="text-lg md:text-4xl oxanium-bold text-white">Welcome to Movie <span className='text-red-500'>Discovery</span> App</h1>
                 <p className="text-white oxanium-regular mt-2">Find your favorite movies here</p>
-                <Link className="mt-4 px-4 py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600" href="/movie">Explore</Link>
+                <Link className="mt-4 px-4 py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600" href="/dashboard">Explore</Link>
             </div>
         </div>
     )

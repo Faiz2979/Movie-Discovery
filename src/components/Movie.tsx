@@ -68,8 +68,8 @@ export default function Movie() {
     }, [page]);
 
     return (
-        <div className="flex relative justify-center items-center min-h-screen" id="top">
-            <div className="flex flex-col items-center snap-center w-3/4 mt-20">
+        <div className="flex relative justify-center items-center min-h-screen w-full lg:w-11/12 " id="top">
+            <div className="flex flex-col items-center snap-center w-full mt-20">
                 <h2 className="text-2xl oxanium oxanium-bold mb-4">Movie Library</h2>
                 <p className="mt-2 text-gray-300 text-xl oxanium oxanium-bold mb-8">Page: {page}</p>
 
