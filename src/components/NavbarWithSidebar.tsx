@@ -74,8 +74,10 @@ export default function NavbarWithSidebar({ children }: NavbarWithSidebarProps) 
                     <div
                         className={`text-white z-10 text-sm lg:text-5xl oxanium oxanium-semibold leading-none inline-flex items-end gap-[2px] transition-all duration-300`}
                     >
+                        <Link href="/">
                         TM<span className="text-red-600">DB</span>
                         <span className="w-2 h-2 rounded-full bg-red-600"></span>
+                        </Link>
                     </div>
                 </nav>
 
