@@ -2,7 +2,7 @@
 
 export default function Home() {
     return(
-        <div className="w-full h-full flex items-center justify-center oxanium mt-5 ">
+        <div className="w-full h-full flex items-center justify-center oxanium m-5 mt-5 ">
             <div>
                 <h1 className="text-4xl">Dashboard</h1>
                 <h2 className="text-2xl">

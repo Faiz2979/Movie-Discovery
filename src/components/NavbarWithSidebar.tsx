@@ -1,10 +1,23 @@
 "use client";
-import Link from 'next/link';
+import Link from "next/link";
 import { ReactNode, useEffect, useState } from "react";
 
 interface NavbarWithSidebarProps {
     children: ReactNode;
 }
+
+
+interface SideBarItem {
+    title: string;
+    link: string;
+}
+
+const sidebarItems: SideBarItem[] = [
+    { title: "Dashboard", link: "/dashboard" },
+    { title: "Movie List", link: "/movie" },
+    { title: "Services", link: "/services" },
+    { title: "Contact", link: "/contact" },
+]
 
 export default function NavbarWithSidebar({ children }: NavbarWithSidebarProps) {
     const [scrollY, setScrollY] = useState(0);
@@ -30,37 +43,27 @@ export default function NavbarWithSidebar({ children }: NavbarWithSidebarProps) 
         <div className="flex">
             {/* Sidebar */}
             <aside
-                className={`fixed top-0 left-0 h-full transition-transform duration-300 z-[999] bg-[#a10f0f] text-white shadow-lg oxanium oxanium-semibold ${
-                    isSidebarOpen ? "translate-x-0" : "-translate-x-[90%]"
-                } w-[250px]`}
+                className={`fixed top-0 left-0 h-full transition-transform duration-300 z-[999] bg-[#a10f0f] text-white shadow-lg oxanium oxanium-semibold 
+                ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} w-[250px] lg:translate-x-0 lg:w-[250px]`}
             >
-                <div
-                    className={`absolute top-0 right-[-40px] h-full w-10 bg-[#a10f0f] cursor-pointer flex items-center justify-center text-white`} 
-                    onClick={toggleSidebar}
-                >
-                    {isSidebarOpen ? "<" : ">"}
-                </div>
-                <ul className="mt-16 p-4 space-y-4">
-                    <li>
-                        <Link href="/dashboard" className="hover:text-red-400">Dashboard</Link>
-                    </li>
-                    <li>
-                        <Link href="/movie" className="hover:text-red-400">Movie List</Link>
-                    </li>
-                    <li>
-                        <Link href="/services" className="hover:text-red-400">Services</Link>
-                    </li>
-                    <li>
-                        <Link href="/contact" className="hover:text-red-400">Contact</Link>
-                    </li>
+                <ul className="mt-16 p-4 space-y-4 w-full h-full ">
+                    {sidebarItems.map((item) => (
+                        <li key={item.title}>
+                            <Link className="hover:underline decoration-red-600 rounded-sm hover:bg-red-500 block" href={item.link
+                            }>
+                            {item.title}
+                            </Link>
+                        </li>
+                    ))}
+
                 </ul>
             </aside>
 
             {/* Main Content Wrapper */}
             <div
-                className={`transition-all duration-300 ${
-                    isSidebarOpen ? "ml-[250px]" : "ml-[40px]"
-                } flex-1`}
+                className={`transition-all duration-300 flex-1 ${
+                    isSidebarOpen ? "lg:ml-[250px]" : "lg:ml-[250px]"
+                }`}
             >
                 {/* Navbar */}
                 <nav
@@ -70,14 +73,22 @@ export default function NavbarWithSidebar({ children }: NavbarWithSidebarProps) 
                             : "bg-[#4d0d0d]"
                     }`}
                 >
-                    <div className="flex-1"></div> {/* Spacer for alignment */}
                     <div
-                        className={`text-white z-10 text-sm lg:text-5xl oxanium oxanium-semibold leading-none inline-flex items-end gap-[2px] transition-all duration-300`}
+                        className={`text-white z-10 text-4xl lg:text-5xl oxanium oxanium-semibold leading-none inline-flex items-end gap-[2px] transition-all duration-300`}
                     >
                         <Link href="/">
-                        TM<span className="text-red-600">DB</span>
-                        <span className="w-2 h-2 rounded-full bg-red-600"></span>
+                            TM<span className="text-red-600">DB</span>
+                            <span className="w-2 h-2 rounded-full bg-red-600"></span>
                         </Link>
+                    </div>
+                    <div className="flex-1"></div> {/* Spacer for alignment */}
+                    <div>
+                        <button
+                            className="text-white text-2xl lg:hidden"
+                            onClick={toggleSidebar}
+                        >
+                            {isSidebarOpen ? "Close" : "Menu"}
+                        </button>
                     </div>
                 </nav>
 
@@ -86,6 +97,14 @@ export default function NavbarWithSidebar({ children }: NavbarWithSidebarProps) 
                     {children}
                 </div>
             </div>
+
+            {/* Overlay for small screens */}
+            {isSidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-[998] lg:hidden"
+                    onClick={toggleSidebar}
+                ></div>
+            )}
         </div>
     );
 }
