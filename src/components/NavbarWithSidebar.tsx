@@ -93,7 +93,7 @@ export default function NavbarWithSidebar({ children }: NavbarWithSidebarProps) 
                 </nav>
 
                 {/* Main Content */}
-                <div className="mt-[20px] ml-[40px] flex-1">
+                <div className="mt-[20px] flex-1">
                     {children}
                 </div>
             </div>
