@@ -14,7 +14,7 @@ interface SideBarItem {
 
 const sidebarItems: SideBarItem[] = [
     { title: "Dashboard", link: "/dashboard" },
-    { title: "Movie List", link: "/movie" },
+    { title: "Movie List", link: "/movie/1" },
     { title: "Services", link: "/services" },
     { title: "Contact", link: "/contact" },
 ]

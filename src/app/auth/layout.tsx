@@ -1,0 +1,18 @@
+import type React from "react"
+import Navigation from "./Navigation"
+
+interface AuthLayoutProps {
+  children: React.ReactNode
+}
+
+const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-[#4d0d0d]">
+            <Navigation />
+            {children}
+        </div>
+    )
+}
+
+export default AuthLayout
+

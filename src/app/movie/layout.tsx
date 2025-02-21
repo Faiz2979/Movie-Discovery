@@ -1,5 +1,5 @@
+import Footer from "@/components/Footer"
 import NavbarWithSidebar from "@/components/NavbarWithSidebar"
-
 
 export const metadata = {
     title: 'Dashboard | Movie Discovery',
@@ -16,6 +16,7 @@ const RootLayout = ({ children }: PropsLayout) => {
         <NavbarWithSidebar>
             {children}
         </NavbarWithSidebar>
+        <Footer></Footer>
         </div>
 
     )
