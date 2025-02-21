@@ -18,7 +18,7 @@ export default function MovieApp() {
     const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(false);
 
-    const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+    const apiKey = "74f0f3d49d2f500b7a5273ac409e25b1";
 
     const fetchMovies = useCallback(async (page: number, query = '') => {
         setLoading(true);
