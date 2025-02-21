@@ -1,9 +1,14 @@
-import type React from "react"
-import Navigation from "./Navigation"
+import type React from "react";
+import Navigation from "./Navigation";
 
 interface AuthLayoutProps {
-  children: React.ReactNode
+    children: React.ReactNode
 }
+
+export const metadata = {
+    title: "Login | Movie Discovery",
+    description: "Login Page",
+};
 
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
     return (

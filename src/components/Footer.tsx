@@ -1,3 +1,4 @@
+import Image from 'next/image'
 
 export default function Footer() {
     return (
@@ -10,7 +11,7 @@ export default function Footer() {
                 <a
                     className="flex items-center justify-center"
                     href="https://www.themoviedb.org/">
-                    <img src="/tmdbPrimary.svg" alt="TMDB Logo" className="w-10 h-10 md:w-14 md:h-14" />
+                    <Image src="/tmdbPrimary.svg" alt="TMDB Logo" className="w-10 h-10 md:w-14 md:h-14" />
                 </a>
             </div>
         </div>

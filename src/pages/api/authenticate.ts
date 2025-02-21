@@ -12,7 +12,7 @@ export default async function handler( request: NextApiRequest, response: NextAp
     if( request.method !== 'POST' ) {
         return response.status(400).json({ message: 'Invalid method' });
     }
-    let data;
+
     const { username, password } = request.body;
     
     if( !username || !password ) {
@@ -34,7 +34,7 @@ export default async function handler( request: NextApiRequest, response: NextAp
         return response.status(401).json({ message: 'Invalid credentials' });
     }
 
-    data = {
+    const data = {
         id: user.id,
         name: user.name,
         username: user.username,    

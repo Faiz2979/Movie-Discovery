@@ -39,7 +39,7 @@ export default function RegisterPage() {
         setErrorMessage(data.message || "Registration failed. Please try again.")
       }
     } catch (error) {
-      setErrorMessage("An error occurred. Please try again later.")
+      setErrorMessage("An error occurred. Please try again later."+ error)
     }
   }
 
