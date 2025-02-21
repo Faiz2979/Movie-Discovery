@@ -12,7 +12,7 @@ interface InputTextProps {
 const InputText: React.FC<InputTextProps> = ({ label, value, onChange, type = "text", id, required = false }) => {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-gray-700">
+      <label htmlFor={id} className="block font-medium text-white oxanium oxanium-semibold text-md">
         {label}
       </label>
       <input

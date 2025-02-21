@@ -2,6 +2,7 @@
 
 import { InputText } from "@/components/parts/Input"
 import { ErrorNotification, SuccessNotification } from "@/components/parts/Notification"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
@@ -45,9 +46,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="bg-white p-8 rounded-lg shadow-md w-96">
-      <h1 className="text-3xl font-bold mb-6 text-center text-[#a10f0f]">Login</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="bg-red-700 p-8 rounded-lg shadow-md w-96">
+      <h1 className="text-3xl font-bold mb-6 text-center text-[#ffffff] oxanium oxanium-bold">Login</h1>
+      <form onSubmit={handleSubmit} className="space-y-4 my-2">
         <InputText
           label="Username"
           value={username}
@@ -65,11 +66,13 @@ export default function LoginPage() {
         />
         <button
           type="submit"
-          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#a10f0f] hover:bg-[#4d0d0d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#a10f0f] transition-colors duration-200"
+          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-base font-bold oxanium text-white bg-[#a10f0f] hover:bg-[#4d0d0d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#a10f0f] transition-colors duration-200"
         >
           Login
         </button>
+        
       </form>
+      <Link href="/auth/register" className=" text-white oxanium oxanium-semibold">Doesnt Have an <span className="text-[#ffe2e2] underline  rounded-md">Account?</span></Link>
       {successMessage && <SuccessNotification message={successMessage} onClose={() => setSuccessMessage("")} />}
       {errorMessage && <ErrorNotification message={errorMessage} onClose={() => setErrorMessage("")} />}
     </div>
